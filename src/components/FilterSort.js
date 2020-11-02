@@ -1,7 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import Filter from "./Filter";
+import Sort from "./Sort";
 
-export default class FilterSort extends Component {
-	render() {
-		return <div>Filter Sort</div>;
-	}
+export default function FilterSort() {
+	return (
+		<div>
+			<Filter />
+			<Sort />
+		</div>
+	);
 }

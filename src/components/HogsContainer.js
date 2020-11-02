@@ -10,7 +10,7 @@ export default class HogsContainer extends Component {
 		super();
 
 		this.state = {
-			greaseFilter: false,
+			greaseFilter: "all",
 			sortType: "none",
 			chosenHog: null,
 		};
@@ -22,6 +22,10 @@ export default class HogsContainer extends Component {
 
 	closeHog = () => {
 		this.setState({ chosenHog: null });
+	};
+
+	selectFilter = (greaseFilter) => {
+		this.setState({ greaseFilter });
 	};
 	render() {
 		return (
