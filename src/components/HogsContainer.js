@@ -15,16 +15,32 @@ export default class HogsContainer extends Component {
 			chosenHog: null,
 		};
 	}
+
+	selectHog = (name) => {
+		this.setState({ chosenHog: hogs.find((hog) => hog.name === name) });
+	};
+
+	closeHog = () => {
+		this.setState({ chosenHog: null });
+	};
 	render() {
 		return (
 			<div>
 				<FilterSort />
-				<HogsMenu
-					hogs={hogs}
-					sortType={this.state.sortType}
-					greaseFilter={this.state.greaseFilter}
-				/>
-				<HogsDetails chosenHog={this.state.chosenHog} />
+
+				{this.state.chosenHog ? (
+					<HogsDetails
+						chosenHog={this.state.chosenHog}
+						closeHog={this.closeHog}
+					/>
+				) : (
+					<HogsMenu
+						hogs={hogs}
+						sortType={this.state.sortType}
+						greaseFilter={this.state.greaseFilter}
+						selectHog={this.selectHog}
+					/>
+				)}
 			</div>
 		);
 	}
