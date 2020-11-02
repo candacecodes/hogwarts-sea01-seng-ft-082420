@@ -30,7 +30,7 @@ export default class HogsContainer extends Component {
 	render() {
 		return (
 			<div>
-				<FilterSort />
+				<FilterSort selectFilter={this.selectFilter} />
 
 				{this.state.chosenHog ? (
 					<HogsDetails
